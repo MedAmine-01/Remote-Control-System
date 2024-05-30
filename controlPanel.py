@@ -17,18 +17,18 @@ class DynamicLayoutWindow(QMainWindow):
         super().__init__()
         
         self.setWindowTitle('Contol Panel')
-        self.setGeometry(100, 100, 300, 400)  # Adjusted height for more space
+        self.setGeometry(100, 100, 300, 400)  
         
         
 
-        # Main widget
+        
         self.main_widget = QWidget()
         self.setCentralWidget(self.main_widget)
         
-        # Vertical layout for the main widget
+        
         self.main_layout = QVBoxLayout(self.main_widget)
         
-        # ComboBox to select layout
+        
         self.combo_box = QComboBox()
         self.combo_box.addItem('Go forward')
         self.combo_box.addItem('Tune')
@@ -37,20 +37,20 @@ class DynamicLayoutWindow(QMainWindow):
         
         self.main_layout.addWidget(self.combo_box)
         
-        # StackedWidget to hold multiple layouts
+       
         self.stacked_widget = QStackedWidget()
         self.main_layout.addWidget(self.stacked_widget)
         
-        # Layout 1: 2 LineEdits and 1 Submit button with labels "move" and "rotate"
+        # Layout 1:"move" and "rotate"
         self.layout1 = QWidget()
         self.layout1_vbox = QVBoxLayout(self.layout1)
         
         self.move_label = QLabel('move')
         self.line_edit1_1 = QLineEdit()
-        self.line_edit1_1.setGeometry(QRect(0, 0, 100, 20))  # Set geometry of line edit
+        self.line_edit1_1.setGeometry(QRect(0, 0, 100, 20))  
         self.rotate_label = QLabel('rotate')
         self.line_edit1_2 = QLineEdit()
-        self.line_edit1_2.setGeometry(QRect(0, 0, 100, 20))  # Set geometry of line edit
+        self.line_edit1_2.setGeometry(QRect(0, 0, 100, 20))  
         
         self.layout1_move_layout = QHBoxLayout()
         self.layout1_move_layout.addWidget(self.move_label)
@@ -67,25 +67,25 @@ class DynamicLayoutWindow(QMainWindow):
         self.submit_button1.clicked.connect(self.submit_layout1)
         self.layout1_vbox.addWidget(self.submit_button1)
         
-        # Layout 2: 5 LineEdits and 1 Submit button with labels "kp position", "kd position", "kp velocity", "ki velocity", "kb"
+        # Layout 2: "kp position", "kd position", "kp velocity", "ki velocity", "kb"
         self.layout2 = QWidget()
         self.layout2_vbox = QVBoxLayout(self.layout2)
         
         self.kp_position_label = QLabel('kp position')
         self.line_edit2_1 = QLineEdit()
-        self.line_edit2_1.setGeometry(QRect(0, 0, 100, 20))  # Set geometry of line edit
+        self.line_edit2_1.setGeometry(QRect(0, 0, 100, 20))  
         self.kd_position_label = QLabel('kd position')
         self.line_edit2_2 = QLineEdit()
-        self.line_edit2_2.setGeometry(QRect(0, 0, 100, 20))  # Set geometry of line edit
+        self.line_edit2_2.setGeometry(QRect(0, 0, 100, 20))  
         self.kp_velocity_label = QLabel('kp velocity')
         self.line_edit2_3 = QLineEdit()
-        self.line_edit2_3.setGeometry(QRect(0, 0, 100, 20))  # Set geometry of line edit
+        self.line_edit2_3.setGeometry(QRect(0, 0, 100, 20))  
         self.ki_velocity_label = QLabel('ki velocity')
         self.line_edit2_4 = QLineEdit()
-        self.line_edit2_4.setGeometry(QRect(0, 0, 100, 20))  # Set geometry of line edit
+        self.line_edit2_4.setGeometry(QRect(0, 0, 100, 20))  
         self.kb_label = QLabel('kb')
         self.line_edit2_5 = QLineEdit()
-        self.line_edit2_5.setGeometry(QRect(0, 0, 100, 20))  # Set geometry of line edit
+        self.line_edit2_5.setGeometry(QRect(0, 0, 100, 20))  
         
         self.layout2_vbox.addWidget(self.kp_position_label)
         self.layout2_vbox.addWidget(self.line_edit2_1)
@@ -102,16 +102,16 @@ class DynamicLayoutWindow(QMainWindow):
         self.submit_button2.clicked.connect(self.submit_layout2)
         self.layout2_vbox.addWidget(self.submit_button2)
         
-        # Layout 3: 2 LineEdits with labels "x" and "y"
+        # Layout 3: "x" and "y"
         self.layout3 = QWidget()
         self.layout3_vbox = QVBoxLayout(self.layout3)
         
         self.x_label = QLabel('x')
         self.line_edit3_1 = QLineEdit()
-        self.line_edit3_1.setGeometry(QRect(0, 0, 100, 20))  # Set geometry of line edit
+        self.line_edit3_1.setGeometry(QRect(0, 0, 100, 20))  
         self.y_label = QLabel('y')
         self.line_edit3_2 = QLineEdit()
-        self.line_edit3_2.setGeometry(QRect(0, 0, 100, 20))  # Set geometry of line edit
+        self.line_edit3_2.setGeometry(QRect(0, 0, 100, 20))  
         
         self.layout3_x_layout = QHBoxLayout()
         self.layout3_x_layout.addWidget(self.x_label)
@@ -128,12 +128,12 @@ class DynamicLayoutWindow(QMainWindow):
         self.submit_button3.clicked.connect(self.submit_layout3)
         self.layout3_vbox.addWidget(self.submit_button3)
         
-        # Add layouts to the stacked widget
+       
         self.stacked_widget.addWidget(self.layout1)
         self.stacked_widget.addWidget(self.layout2)
         self.stacked_widget.addWidget(self.layout3)
         
-        # Set initial layout
+       
         self.stacked_widget.setCurrentIndex(0)
     
     def switch_layout(self, index):
